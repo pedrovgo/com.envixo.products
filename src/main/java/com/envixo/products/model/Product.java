@@ -4,12 +4,7 @@ import com.envixo.products.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Index;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -27,4 +22,7 @@ public class Product extends GenericModel {
     private Category category;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Tag> tags;
+
+    @Transient
+    private List<String> imagesBase64;
 }
