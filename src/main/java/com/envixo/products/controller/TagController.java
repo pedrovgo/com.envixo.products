@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/tags")
@@ -25,6 +26,11 @@ public class TagController extends GenericController<TagDto, Tag, TagService> {
     @GetMapping("/{id}")
     public TagDto get(@PathVariable Long id) {
         return super.get(id);
+    }
+
+    @GetMapping
+    public List<TagDto> get() {
+        return super.get();
     }
 
     @PostMapping

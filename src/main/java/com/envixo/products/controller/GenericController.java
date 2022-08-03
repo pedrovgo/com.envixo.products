@@ -18,6 +18,8 @@ public abstract class GenericController<T extends GenericDto, M extends GenericM
         return service.get(id);
     }
 
+    public List<T> get() { return service.get(); }
+
     public T create(T dto) {
         dto.setId(0L);
         return service.save(dto);

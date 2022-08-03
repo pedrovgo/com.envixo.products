@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/categories")
@@ -25,6 +26,11 @@ public class CategoryController extends GenericController<CategoryDto, Category,
     @GetMapping("/{id}")
     public CategoryDto get(@PathVariable Long id) {
         return super.get(id);
+    }
+
+    @GetMapping
+    public List<CategoryDto> get() {
+        return super.get();
     }
 
     @PostMapping
